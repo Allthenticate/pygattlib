@@ -15,7 +15,7 @@ else
   BOOST_PYTHON  = boost_python
 endif
 
-CFLAGS  += -ggdb -fPIC -Wall $$($(PYTHON_CONFIG) --includes) \
+CFLAGS  += -ggdb -fPIC -Wall -fsanitize=address -fno-omit-frame-pointer -static-libasan $$($(PYTHON_CONFIG) --includes) \
 	   -Ibluez $$(pkg-config --cflags glib-2.0)
 
 CFLAGS  += -DVERSION='"5.25"'
